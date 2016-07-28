@@ -1,0 +1,61 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+}
+
+apply plugin:'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies{
+    compile 'org.springframework.security:spring-security-config:4.0.1.RELEASE'
+    compile 'org.springframework.security:spring-security-web:4.0.1.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.6.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.4'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+sourceCompatibility=1.8
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourceJar {
+                classifier "sources"
+            }
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['mavenJava']
+    configurations = ['archives', 'sources']
+    pkg {
+        repo = 'maven'
+        name = project.name
+        licenses = ['MIT']
+        publicDownloadNumbers = true
+        vcsUrl = 'https://github.com/cementovoz/spring-rest-login.git'
+        githubRepo = 'cementovoz/spring-rest-login'
+        issueTrackerUrl = 'https://github.com/cementovoz/spring-rest-login/issues'
+        websiteUrl='https://github.com/cementovoz/spring-rest-login'
+        version {
+            name = project.version
+            released = new Date()
+        }
+    }
+}
