@@ -2,7 +2,7 @@
 Configuration adapter for REST API authorization with Spring security
 
 
-[![Build Status](https://travis-ci.org/cementovoz/spring-rest-login.svg?branch=master)](https://travis-ci.org/cementovoz/spring-rest-login)
+[![Build Status](https://travis-ci.org/pelenthium/spring-rest-login.svg?branch=master)](https://travis-ci.org/pelenthium/spring-rest-login)
 
 For SPA we can't to use HttpSecurity.formLogin(). We need to support REST API authorization with json.
 HttpSecurity.appy(new RestLoginConfigurer<>()) - this line adds to configuration some features :
