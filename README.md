@@ -43,11 +43,11 @@ curl -X POST -d '{"username":"admin", "password":"123"}' http://localhost:8080/a
 
 ### Download
 #### Jar 
- You can download [spring-rest-login.jar](https://dl.bintray.com/pelenthium/maven/com/github/cementovoz/spring-rest-login/0.0.1-RELEASE/:spring-rest-login-0.0.1-RELEASE.jar)
+ You can download [spring-rest-login.jar](https://dl.bintray.com/pelenthium/maven/com/github/pelenhium/spring-rest-login/0.0.1-RELEASE/:spring-rest-login-0.0.1-RELEASE.jar)
 #### Gradle 
 
 ```
-compile 'com.github.cementovoz:spring-rest-login:0.0.1-RELEASE'
+compile 'com.github.pelenthium:spring-rest-login:0.0.1-RELEASE'
 ```
 Don't forget to add to resposiries
 ```
@@ -61,7 +61,7 @@ repositories {
 #### Maven
 ```
 <dependency>
-  <groupId>com.github.cementovoz</groupId>
+  <groupId>com.github.pelenthium</groupId>
   <artifactId>spring-rest-login</artifactId>
   <version>0.0.1-RELEASE</version>
   <type>pom</type>
